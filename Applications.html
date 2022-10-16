@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>Proton Advertising - Applications</title>
+    </head>
+    <style>
+                    body{
+                background-color:#000000;
+                background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(99, 0, 0));
+            }
+            h2{
+                font-family:verdana;
+                font-size: 4vw;
+                color:white;
+            }
+
+            p{
+                font-family:verdana;
+                font-size: 2 vw;
+                color:white;
+            }
+
+            .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            }
+
+            .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 38px;
+            }
+
+            .left-side {
+            display: flex;
+            }
+
+            .nav-wrapper > .left-side > div {
+            margin-right: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            }
+
+            .nav-link-wrapper {
+            height: 22px;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.5s;
+            }
+
+            .active-nav-link {
+            border-bottom: 1px solid rgb(150, 150, 150);
+            }
+
+            .active-nav-link a {
+            color: rgb(255, 255, 255) !important;
+            }
+
+            .nav-link-wrapper a {
+            color: #8a8a8a;
+            text-decoration: none;
+            transition: color 0.5s;
+            }
+
+            .nav-link-wrapper:hover {
+            border-bottom: 1px solid rgb(150, 150, 150);
+            }
+
+            .nav-link-wrapper a:hover {
+            color: rgb(255, 255, 255);
+            }
+            .Bar{
+                width: 20%;
+                height: 5%;
+                background-color:rgba(255, 255, 255, 0.432);
+                color:rgb(0, 0, 0);
+                font-family:verdana;
+                color:white;
+                font-size: 0.7vw;
+            }
+            .search1{
+                width: 5%;
+                height: 5%;
+                background-color:rgb(255, 255, 255);
+                color:rgb(0, 0, 0);
+                font-family:verdana;
+                font-size: 0.7vw; 
+            }
+            ::placeholder {
+                color: rgb(255, 255, 255);
+                font-family:verdana;
+                opacity: 1;
+            }
+            input#image-button{
+                background: #ccc url('icon.png') no-repeat top left;
+                padding-left: 16px;
+                height: 16px;
+            }
+        .Apply{
+            width: 5%;
+            height: 5%;
+            color:rgb(0, 0, 0);
+            font-family:verdana;
+            font-size: 1vw; 
+        }
+        .Questions{
+            width: auto;
+            height: auto;   
+            color:rgb(0, 0, 0);
+            font-family:verdana;
+            font-size: 1vw; 
+            position: relative;
+            padding-top: 0.5em;
+            padding-bottom: 5em;
+        }
+        ::placeholder {
+                color: rgb(255, 255, 255);
+                font-family:verdana;
+                opacity: 1;
+                text-align:center;
+        }
+        input{
+            width: 50%;
+            text-align:center;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="nav-wrapper">
+              <div class="left-side">
+                <div class="nav-link-wrapper" style="font-family:verdana;">
+                  <a href="index.html">Home</a>
+                </div>
+        
+                <div class="nav-link-wrapper" style="font-family:verdana;">
+                  <a href="socials.html">socials</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="Title">
+            <center><h2>Advertisment Submission</h2></center>
+        </div>
+        <div class="Questions">
+            <center>
+            <p>Discord username and tag.</p>
+            <input id="DiscoUserTag" type="text" class="no-outline" placeholder="...">
+            <p>What is the thing you want to advertise?</p>
+            <input id="what" type="text" class="no-outline" placeholder="...">
+            <p>A link to what you want to advertise. (Discord Server, Roblox Game ect.)</p>
+            <input id="link" type="text" class="no-outline" placeholder="...">
+            <p>Description of the thing you want to advertise. (Minimum 50 characters)</p>
+            <input id="desc" type="text" class="no-outline" placeholder="...">
+            </center>
+        </div>
+        <center><button onclick="sendMessage()" class="Apply">Apply</button></center>
+    </body>
+    <script>
+        function sendMessage() {
+            var length = 8,
+                charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            window.alert('Your submission code is "'+retVal+'" This code is important. Make sure you save it somewhere or dont forget it.');
+            const request = new XMLHttpRequest();
+            request.open("POST", "https://discord.com/api/webhooks/1031205688552202341/MpKVQupmUcKrNYVKq5JpmkvaCYH53FJeHNhkI9qYMOPFakksMEtn2DEe4c3647cxssei");
+
+            request.setRequestHeader('Content-type', 'application/json');
+            const params = {
+                username: "",
+                avatar_url: "",
+                content: `Discord Username: ${document.getElementById("DiscoUserTag").value}\nUser wants to advertise: ${document.getElementById("what").value}\nLink: ${document.getElementById("link").value}\nDescription: ${document.getElementById("desc").value}\nSubmission Code: ${retVal}`
+            }
+            request.send(JSON.stringify(params));
+            var delayInMilliseconds = 1000; //1 second
+            setTimeout(function() {
+                location.replace("index.html")
+            }, delayInMilliseconds);
+        }
+    </script>
+</html>

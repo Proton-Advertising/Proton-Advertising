@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>Proton Advertising</title>
+        <style>
+            body{
+                background-color:#000000;
+                background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(99, 0, 0));
+            }
+            h2{
+                font-family:verdana;
+                font-size: 4vw;
+                color:white;
+            }
+
+            p{
+                font-family:verdana;
+                font-size: 2 vw;
+                color:white;
+            }
+
+            .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            }
+
+            .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 38px;
+            }
+
+            .left-side {
+            display: flex;
+            }
+
+            .nav-wrapper > .left-side > div {
+            margin-right: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            }
+
+            .nav-link-wrapper {
+            height: 22px;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.5s;
+            }
+
+            .active-nav-link {
+            border-bottom: 1px solid rgb(150, 150, 150);
+            }
+
+            .active-nav-link a {
+            color: rgb(255, 255, 255) !important;
+            }
+
+            .nav-link-wrapper a {
+            color: #8a8a8a;
+            text-decoration: none;
+            transition: color 0.5s;
+            }
+
+            .nav-link-wrapper:hover {
+            border-bottom: 1px solid rgb(150, 150, 150);
+            }
+
+            .nav-link-wrapper a:hover {
+            color: rgb(255, 255, 255);
+            }
+            .Bar{
+                width: 20%;
+                height: 5%;
+                background-color:rgba(255, 255, 255, 0.432);
+                color:rgb(0, 0, 0);
+                font-family:verdana;
+                color:white;
+                font-size: 0.7vw;
+            }
+            .search1{
+                width: 5%;
+                height: 5%;
+                background-color:rgb(255, 255, 255);
+                color:rgb(0, 0, 0);
+                font-family:verdana;
+                font-size: 0.7vw; 
+            }
+            ::placeholder {
+                color: rgb(255, 255, 255);
+                font-family:verdana;
+                opacity: 1;
+            }
+            input#image-button{
+                background: #ccc url('icon.png') no-repeat top left;
+                padding-left: 16px;
+                height: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <div class="container">
+            <div class="nav-wrapper">
+              <div class="left-side">
+                <div class="nav-link-wrapper active-nav-link" style="font-family:verdana;">
+                  <a href="index.html">Home</a>
+                </div>
+        
+                <div class="nav-link-wrapper" style="font-family:verdana;">
+                  <a href="socials.html">socials</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- Title -->
+        <div class="Title">
+            <center><h2>Proton Advertising</h2></center>
+        </div>
+        <!-- Search Box -->
+        <div class="NText">
+            <center><p>Find the perfect Roblox game, Discord server and much more!</p></center>
+            <center><form id="frmSearch" class="search2" method="get" action="index.html" />
+                <input class="Bar" id="txtSearch" type="text" name="serach_bar" maxlength="255" value=""placeholder="Enter Text to search for!"/>
+                <input class="search1" type="submit" name="submition" value="Search"/>
+                <input class="search2" type="hidden" name="sitesearch" value="index.html"/>
+        </div>
+
+        <!--<object data="logo-discord.svg" width="300" height="300"> </object>-->
+    </body>
+    <script type="text/javascript">
+        document.getElementById('frmSearch').onsubmit = function() {
+            let text = document.getElementById('txtSearch').value
+            text = text.toLowerCase()
+            window.location = text+".html";
+            return false;
+        }
+    </script>
+</html>
